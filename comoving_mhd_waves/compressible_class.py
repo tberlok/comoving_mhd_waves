@@ -22,7 +22,7 @@ class AnalyticComovingMagnetosonicWave:
         if gamma == 4/3:
             self.sigma = np.sqrt(self.OmegaS**2 + self.OmegaA**2
                                  - self.OmegaG**2, dtype=np.complex)
-            self.kappa == np.sqrt(self.sigma**2 - 1/16, dtype=np.complex)
+            self.kappa = np.sqrt(self.sigma**2 - 1/16, dtype=np.complex)
         else:
             self.s = (4 - 3*gamma)/2
             self.nu = np.sqrt(1 - 16*(self.OmegaA**2 - self.OmegaG**2),
@@ -72,18 +72,25 @@ class AnalyticComovingMagnetosonicWave:
 
     def delta_rhoc_over_rhoc(self, a):
         if self.gamma == 4/3:
-            pass
+            psi = self.kappa*np.log(a/self.ai)
+            fac1 = self.A_rho*np.cos(psi)
+            fac2 = (self.A_rho - 4*1j*self.OmegaS*np.sqrt(self.ai)*self.A_u)/(4*self.kappa)*np.sin(psi)
+            res = (a/self.ai)**(-1/4)*(fac1 + fac2)
         else:
             res = self.c1*self.F(a) + self.c2*self.G(a)
-        return res
+        return res.astype(complex)
 
     def delta_u_over_vs(self, a):
         if self.gamma == 4/3:
-            pass
+            psi = self.kappa*np.log(a/self.ai)
+            fac1 = self.A_u*np.cos(psi)
+            fac2 = -(self.A_u/(4*self.kappa) + 1j*self.A_rho*(1 + 16*self.kappa**2)/(16*np.sqrt(self.ai)*self.kappa*self.OmegaS)
+                     )*np.sin(psi)
+            res = (a/self.ai)**(-3/4)*(fac1 + fac2)
         else:
             drho_da = self.c1*self.Fp(a) + self.c2*self.Gp(a)
             res = 1j*np.sqrt(a)/self.OmegaS*drho_da
-        return res
+        return res.astype(complex)
 
 
 if __name__ == '__main__':
