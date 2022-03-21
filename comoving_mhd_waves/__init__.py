@@ -1,4 +1,4 @@
-from .alfven_class import AnalyticComovingAlfvenWave
+from .alfven_analytic import AnalyticComovingAlfvenWave
 from .alfven_scipy import ScipyComovingAlfvenWave
-from .compressible_class import AnalyticComovingMagnetosonicWave
+from .compressible_analytic import AnalyticComovingMagnetosonicWave
 from .compressible_scipy import ScipyComovingMagnetosonicWave
