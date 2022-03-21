@@ -72,21 +72,31 @@ class AnalyticComovingMagnetosonicWave:
 
     def delta_rhoc_over_rhoc(self, a):
         if self.gamma == 4/3:
-            psi = self.kappa*np.log(a/self.ai)
-            fac1 = self.A_rho*np.cos(psi)
-            fac2 = (self.A_rho - 4*1j*self.OmegaS*np.sqrt(self.ai)*self.A_u)/(4*self.kappa)*np.sin(psi)
-            res = (a/self.ai)**(-1/4)*(fac1 + fac2)
+            if self.kappa == 0:
+                fac1 = self.A_rho
+                fac2 = (self.A_rho - 4*1j*self.OmegaS*np.sqrt(self.ai)*self.A_u)/4*np.log(a/self.ai)
+                res = (a/self.ai)**(-1/4)*(fac1 + fac2)
+            else:
+                psi = self.kappa*np.log(a/self.ai)
+                fac1 = self.A_rho*np.cos(psi)
+                fac2 = (self.A_rho - 4*1j*self.OmegaS*np.sqrt(self.ai)*self.A_u)/(4*self.kappa)*np.sin(psi)
+                res = (a/self.ai)**(-1/4)*(fac1 + fac2)
         else:
             res = self.c1*self.F(a) + self.c2*self.G(a)
         return res.astype(complex)
 
     def delta_u_over_vs(self, a):
         if self.gamma == 4/3:
-            psi = self.kappa*np.log(a/self.ai)
-            fac1 = self.A_u*np.cos(psi)
-            fac2 = -(self.A_u/(4*self.kappa) + 1j*self.A_rho*(1 + 16*self.kappa**2)/(16*np.sqrt(self.ai)*self.kappa*self.OmegaS)
-                     )*np.sin(psi)
-            res = (a/self.ai)**(-3/4)*(fac1 + fac2)
+            if self.kappa == 0:
+                fac1 = self.A_u
+                fac2 = -(1j*self.A_rho/np.sqrt(self.ai) + 4*self.A_u*self.OmegaS)/(16*self.OmegaS)*np.log(a/self.ai)
+                res = (a/self.ai)**(-3/4)*(fac1 + fac2)
+            else:
+                psi = self.kappa*np.log(a/self.ai)
+                fac1 = self.A_u*np.cos(psi)
+                fac2 = -(self.A_u/(4*self.kappa) + 1j*self.A_rho*(1 + 16*self.kappa**2)/(16*np.sqrt(self.ai)*self.kappa*self.OmegaS)
+                         )*np.sin(psi)
+                res = (a/self.ai)**(-3/4)*(fac1 + fac2)
         else:
             drho_da = self.c1*self.Fp(a) + self.c2*self.Gp(a)
             res = 1j*np.sqrt(a)/self.OmegaS*drho_da
