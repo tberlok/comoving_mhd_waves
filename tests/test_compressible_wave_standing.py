@@ -41,7 +41,10 @@ def test_isothermal_compressible_wave_standing(show=False, ii=0):
                 axes[1, 0].semilogx(a, sci_sol.delta_u_over_vs(a).real, '--')
                 axes[1, 1].semilogx(a, sci_sol.delta_u_over_vs(a).imag, '--')
                 axes[0, 0].legend(frameon=False)
-                fig.suptitle('{}'.format(ii+1))
+                nums = '{:1.2f},{:1.2f},{:1.2f}'.format(an_sol.OmegaS/np.pi, an_sol.OmegaA/np.pi, an_sol.OmegaG/np.pi)
+                title = r'$\gamma=1,\, (\Omega_\mathrm{s},\,\Omega_\mathrm{A},\,\Omega_\mathrm{g})/\pi = ' + nums + '$'
+                fig.suptitle(title)
+
                 ii += 1
 
                 # Test that everything works
@@ -101,7 +104,9 @@ def test_gamma_five_thirds_compressible_wave_standing(show=False, ii=0):
                 axes[1, 0].semilogx(a, sci_sol.delta_u_over_vs(a).real, '--')
                 axes[1, 1].semilogx(a, sci_sol.delta_u_over_vs(a).imag, '--')
                 axes[0, 0].legend(frameon=False)
-                fig.suptitle('{}'.format(ii+1))
+                nums = '{:1.2f},{:1.2f},{:1.2f}'.format(an_sol.OmegaS/np.pi, an_sol.OmegaA/np.pi, an_sol.OmegaG/np.pi)
+                title = r'$\gamma=5/3,\, (\Omega_\mathrm{s},\,\Omega_\mathrm{A},\,\Omega_\mathrm{g})/\pi = ' + nums + '$'
+                fig.suptitle(title)
                 ii += 1
 
                 # Test that everything works
