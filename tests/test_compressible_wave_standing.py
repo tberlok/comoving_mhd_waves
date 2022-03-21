@@ -1,4 +1,15 @@
 import numpy as np
+from comoving_mhd_waves import AnalyticComovingMagnetosonicWave
+from comoving_mhd_waves import ScipyComovingMagnetosonicWave
+
+ai = 1/128
+A_u = 1
+A_rho = 0.2
+
+H0 = 1
+k = 2*np.pi
+
+a = np.logspace(np.log10(ai), 0, 300)
 
 
 def compare(show, a, an_sol, sci_sol):
@@ -43,17 +54,6 @@ def compare(show, a, an_sol, sci_sol):
 
 
 def test_isothermal_compressible_wave_standing(show=False):
-    from comoving_mhd_waves import AnalyticComovingMagnetosonicWave
-    from comoving_mhd_waves import ScipyComovingMagnetosonicWave
-
-    ai = 1/128
-    A_u = 1
-    A_rho = 0.2
-
-    H0 = 1
-    k = 2*np.pi
-
-    a = np.logspace(np.log10(ai), 0, 300)
 
     Vs = 1.0
     gamma = 1
@@ -65,18 +65,6 @@ def test_isothermal_compressible_wave_standing(show=False):
 
 
 def test_gamma_four_thirds_compressible_wave_standing(show=False, ii=0):
-    import numpy as np
-    from comoving_mhd_waves import AnalyticComovingMagnetosonicWave
-    from comoving_mhd_waves import ScipyComovingMagnetosonicWave
-
-    ai = 1/128
-    A_u = 1
-    A_rho = 0.2
-
-    H0 = 1
-    k = 2*np.pi
-
-    a = np.logspace(np.log10(ai), 0, 300)
 
     Vs = 1/5
     gamma = 4/3
@@ -86,6 +74,7 @@ def test_gamma_four_thirds_compressible_wave_standing(show=False, ii=0):
             sci_sol = ScipyComovingMagnetosonicWave(k, H0, Vs, Va, Vg, gamma, ai, A_u, A_rho)
             compare(show, a, an_sol, sci_sol)
 
+    # Test special case for which σ=1/4 such that κ=0
     Vs = 1/4 * H0/k
     Va = 0
     Vg = 0
@@ -96,18 +85,6 @@ def test_gamma_four_thirds_compressible_wave_standing(show=False, ii=0):
 
 
 def test_gamma_five_thirds_compressible_wave_standing(show=False, ii=0):
-    import numpy as np
-    from comoving_mhd_waves import AnalyticComovingMagnetosonicWave
-    from comoving_mhd_waves import ScipyComovingMagnetosonicWave
-
-    ai = 1/128
-    A_u = 1
-    A_rho = 0.2
-
-    H0 = 1
-    k = 2*np.pi
-
-    a = np.logspace(np.log10(ai), 0, 300)
 
     Vs = 1/10
     gamma = 5/3
@@ -119,18 +96,6 @@ def test_gamma_five_thirds_compressible_wave_standing(show=False, ii=0):
 
 
 def test_gamma_nonstandard_compressible_wave_standing(show=False, ii=0):
-    import numpy as np
-    from comoving_mhd_waves import AnalyticComovingMagnetosonicWave
-    from comoving_mhd_waves import ScipyComovingMagnetosonicWave
-
-    ai = 1/128
-    A_u = 1
-    A_rho = 0.2
-
-    H0 = 1
-    k = 2*np.pi
-
-    a = np.logspace(np.log10(ai), 0, 300)
 
     Vs = 1/2
     gamma = 1.2
