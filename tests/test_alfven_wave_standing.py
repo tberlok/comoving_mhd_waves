@@ -10,7 +10,7 @@ def test_alfven_wave_standing(show=False):
 
     OmegaA = np.pi
 
-    for ii, OmegaA in enumerate([1/16, 0.26, np.pi, 2*np.pi]):
+    for ii, OmegaA in enumerate([1/16, 0.25, np.pi, 2*np.pi]):
         an_sol = AnalyticComovingAlfvenWave(OmegaA, ai, A_u, A_B)
         sci_sol = ScipyComovingAlfvenWave(OmegaA, ai, A_u, A_B)
 
