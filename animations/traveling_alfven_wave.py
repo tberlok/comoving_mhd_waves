@@ -68,7 +68,7 @@ if __name__ == '__main__':
     axes[1, 1].plot(x, du_over_va(x, ai, direc), 'k:')
 
     for ii in range(2):
-        axes[1, ii].set_xlabel(r'$a$')
+        axes[1, ii].set_xlabel(r'$x/L$')
 
     axes[0, 0].set_ylabel(r'$\delta B_\mathrm{c}/B_\mathrm{c}$')
     axes[0, 1].set_ylabel(r'$(a/a_\mathrm{i})^{1/4}\delta B_\mathrm{c}/B_\mathrm{c}$')
