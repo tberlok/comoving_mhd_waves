@@ -19,6 +19,9 @@ def dBc_over_Bc(x, a, direction='right'):
 
 
 def du_over_va(x, a, direction='right'):
+    """
+    Traveling Alfvén wave solution
+    """
     if direction == 'right':
         sign = -1
     elif direction == 'left':
