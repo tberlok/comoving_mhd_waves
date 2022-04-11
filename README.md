@@ -6,7 +6,7 @@ This Github repository contains supplementary Python scripts for the MNRAS
 submitted paper:
 
 *Hydromagnetic waves in an expanding universe – cosmological MHD code tests
-using analytic solutions* [arxiv]().
+using analytic solutions* [ADS-link](https://ui.adsabs.harvard.edu/abs/2022arXiv220311887B/abstract).
 
 # Installation
 
