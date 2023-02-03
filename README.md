@@ -3,10 +3,10 @@
 # Comoving MHD waves
 
 This Github repository contains supplementary Python scripts for the MNRAS
-submitted paper:
+paper:
 
 *Hydromagnetic waves in an expanding universe – cosmological MHD code tests
-using analytic solutions* [ADS-link](https://ui.adsabs.harvard.edu/abs/2022arXiv220311887B/abstract).
+using analytic solutions*, Berlok T., 2022, MNRAS, 515, 3492. doi:10.1093/mnras/stac1882 [ADS-link](https://ui.adsabs.harvard.edu/abs/2022MNRAS.515.3492B/abstract).
 
 # Installation
 
