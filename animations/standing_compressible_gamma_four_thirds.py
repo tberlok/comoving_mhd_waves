@@ -60,8 +60,8 @@ if __name__ == '__main__':
     OmegaA = k*Va/H0
     OmegaG = k*Vg/H0
 
-    sigma = np.sqrt(OmegaS**2 + OmegaA**2 - OmegaG**2, dtype=np.complex)
-    kappa = np.sqrt(sigma**2 - 1/16, dtype=np.complex).real
+    sigma = np.sqrt(OmegaS**2 + OmegaA**2 - OmegaG**2, dtype=np.complex128)
+    kappa = np.sqrt(sigma**2 - 1/16, dtype=np.complex128).real
 
     sci_sol = ScipyComovingMagnetosonicWave(k, H0, Vs, Va, Vg, gamma, ai,
                                             A_u, A_rho)

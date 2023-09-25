@@ -1,7 +1,7 @@
-class ScipyComovingAlfvenWave:
+class ScipyComovingAlfvenWaveWithViscosity:
 
     def __init__(self, OmegaA, ai, A_u, A_B, Omega0=1, OmegaLambda=0,
-                 points=10000):
+                 points=10000, Gamma=0):
         import numpy as np
         from scipy.integrate import solve_ivp
 
@@ -9,6 +9,8 @@ class ScipyComovingAlfvenWave:
             """
             RHS
             """
+            n = -5/2
+
             f = [0, 0]
             dBc_over_Bc = y[0]
             a_times_du_over_va = y[1]
@@ -18,7 +20,8 @@ class ScipyComovingAlfvenWave:
                                      + OmegaLambda)
 
             f[0] = 1j*OmegaA/(a**2*adot_over_H0) * a_times_du_over_va
-            f[1] = 1j*OmegaA/(a*adot_over_H0) * dBc_over_Bc
+            f[1] = 1j*OmegaA/(a*adot_over_H0) * dBc_over_Bc \
+                - Gamma*a**n*a/adot_over_H0 * a_times_du_over_va
 
             return f
 

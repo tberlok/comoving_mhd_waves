@@ -24,7 +24,7 @@ class ScipyComovingMagnetosonicWave:
 
             return f
 
-        f0 = np.array([A_rho, ai*A_u*Vs], dtype=np.complex)
+        f0 = np.array([A_rho, ai*A_u*Vs], dtype=np.complex128)
 
         sol = solve_ivp(rhs, [ai, 1], f0, method='BDF',
                         dense_output=True, atol=1e-10, rtol=1e-8)

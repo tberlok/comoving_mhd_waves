@@ -21,12 +21,12 @@ class AnalyticComovingMagnetosonicWave:
 
         if gamma == 4/3:
             self.sigma = np.sqrt(self.OmegaS**2 + self.OmegaA**2
-                                 - self.OmegaG**2, dtype=np.complex)
-            self.kappa = np.sqrt(self.sigma**2 - 1/16, dtype=np.complex)
+                                 - self.OmegaG**2, dtype=np.complex128)
+            self.kappa = np.sqrt(self.sigma**2 - 1/16, dtype=np.complex128)
         else:
             self.s = (4 - 3*gamma)/2
             self.nu = np.sqrt(1 - 16*(self.OmegaA**2 - self.OmegaG**2),
-                              dtype=np.complex)/(4*np.abs(self.s))
+                              dtype=np.complex128)/(4*np.abs(self.s))
 
             self.c1 = self.A_rho*self.Gp(ai) + \
                 1j*self.A_u*self.OmegaS/np.sqrt(ai)*self.G(ai)

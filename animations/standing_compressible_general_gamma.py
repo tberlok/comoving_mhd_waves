@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
     s = (4 - 3*gamma)/2
     nu = np.sqrt(1 - 16*(OmegaA**2 - OmegaG**2),
-                 dtype=np.complex)/(4*np.abs(s))
+                 dtype=np.complex128)/(4*np.abs(s))
 
     sci_sol = ScipyComovingMagnetosonicWave(k, H0, Vs, Va, Vg, gamma, ai,
                                             A_u, A_rho)

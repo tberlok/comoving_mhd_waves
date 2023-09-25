@@ -31,8 +31,8 @@ def du_over_vs(x, a, direction='right'):
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
 
-    # Animation of traveling Alvén wave.
-    # Parameters as in Fig. 7 in the paper
+    # Animation of traveling compressible wave.
+    # Parameters as in Fig. 9 in the paper
 
     direc = 'right'
 
@@ -54,8 +54,8 @@ if __name__ == '__main__':
     OmegaA = k*Va/H0
     OmegaG = k*Vg/H0
 
-    sigma = np.sqrt(OmegaS**2 + OmegaA**2 - OmegaG**2, dtype=np.complex)
-    kappa = np.sqrt(sigma**2 - 1/16, dtype=np.complex)
+    sigma = np.sqrt(OmegaS**2 + OmegaA**2 - OmegaG**2, dtype=np.complex128)
+    kappa = np.sqrt(sigma**2 - 1/16, dtype=np.complex128)
 
     n_periods = 3
     ai = np.exp(-2*n_periods*np.pi/kappa).real
