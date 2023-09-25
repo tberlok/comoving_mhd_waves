@@ -13,7 +13,7 @@ mp.dps = 20
 
 def convert_mp_to_np(y_mp):
     y_np = mp.nstr(y_mp, 17, min_fixed=0, max_fixed=0).replace(' ', '')
-    return np.complex(y_np)
+    return np.complex128(y_np)
 
 
 def bessel_j(nu, x):
