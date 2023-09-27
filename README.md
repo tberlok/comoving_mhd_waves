@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/tberlok/comoving_mhd_waves/tree/main.svg?style=svg&circle-token=33bce19b6fe69af562d7c2519ea4d6ab12958290)](https://circleci.com/gh/tberlok/comoving_mhd_waves/tree/main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/tberlok/comoving_mhd_waves/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/tberlok/comoving_mhd_waves/tree/main)
 
 # Comoving MHD waves
 
